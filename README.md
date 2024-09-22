@@ -11,20 +11,7 @@ $ ./go-sample-app
 ```
 
 ```bash
-$ curl http://localhost:8080?name=Nofar
-Hello, Nofar 
+$ curl http://localhost:8080?name=barfield
+Hello, barfield
 Test123123123
 ``` 
-Testing 123456
-khkk
-asdasbdklajshfaksjfhasdf
-123123123123  
-   
-   
-    
-         
-          
-               
- 
-   
-  
