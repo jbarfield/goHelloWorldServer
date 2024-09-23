@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM library/golang:latest
 LABEL maintainer="John Barfield <john@the9b.com>"
-ADD example /bin/
-ENTRYPOINT ["/bin/example"]
+ADD helloworld /bin/
+ENTRYPOINT ["/bin/helloworld"]
