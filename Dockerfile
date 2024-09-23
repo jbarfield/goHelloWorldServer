@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:latest
 LABEL maintainer="John Barfield <john@the9b.com>"
-ADD example /harness/
-ENTRYPOINT ["/harness/example"]
+ADD example /bin/
+ENTRYPOINT ["/bin/example"]
