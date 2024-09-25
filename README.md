@@ -1,17 +1,12 @@
 # HelloWorldGoServer
 GO + Docker + unit tests
-asdsadsad
 
 ## Running the app locally
-
-```bash
-$ go build
-$ ./go-sample-app
-2019/02/03 11:38:11 Starting Server
 ```
-
-```bash
-$ curl http://localhost:8080?name=barfield
+# CGO_ENABLED=0 GOOS=linux GOARCH=amd64 
+go build -buildvcs=false -o main .
+./main
+```
+2019/02/03 11:38:11 Starting Server
+`curl http://localhost:8080?name=barfield`
 Hello, barfield
-Test123123123
-``` 
