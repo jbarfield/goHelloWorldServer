@@ -21,7 +21,7 @@ Hello, jbarfield
 ### Required Connectors
 github.com/jbarfield
 * oAuth account [SSO]
-* rsa-key [Pem Format]
+* ssh-rsa-key [Pem Format]
 * api access [personal access token]
 * kubernetes-delegate `kubectl apply MANIFEST.yaml` [installed in cluster]
 * docker_connector [harness UI or CLI]
