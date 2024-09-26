@@ -1,0 +1,52 @@
+pipeline:
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags:
+    test: ""
+    interview: ""
+  properties:
+    ci:
+      codebase:
+        connectorRef: harnessrsasshkeytest
+        repoName: goHelloWorldServer
+        build: <+input>
+        sparseCheckout: []
+  stages:
+    - stage:
+        name: test-stage-1
+        identifier: teststage1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k8sconnector
+              namespace: harness-ci
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              containerSecurityContext:
+                privileged: true
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: barfielddockerconnector
+                    repo: bissinc/harness-gohelloworldserver
+                    tags:
+                      - <+pipeline.variables.version>
+                    dockerfile: Dockerfile.build
+  variables:
+    - name: version
+      type: String
+      description: ""
+      required: true
+      value: <+input>
+  identifier: testci0001_Clone
+  description: interview project test-ci-0002 - goHelloWorldServer
+  name: test-ci-0002
