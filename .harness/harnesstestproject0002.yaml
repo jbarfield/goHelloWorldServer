@@ -39,7 +39,8 @@ pipeline:
                   type: K8sRollingDeploy
           service:
             serviceRef: harnessIohelloworldservice
-        tags: {}
+        tags:
+          4cd66115-08c5-4871-af72-c15064bc73df: ""
         type: Deployment
   tags: {}
   properties:
