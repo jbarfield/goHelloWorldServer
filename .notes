@@ -1,7 +1,0 @@
-# harness manifests should stay in same git repo under .harness for ci/cd
-
-#cli notes
-harness login --api-key pat.-bANtdt3R3yH14FgEztR8g.66f47373c97d16699b8e55a9.mw1c35kuRXQcIFNryLoF --account-id -bANtdt3R3yH14FgEztR8g
-
-# CD stage should exist in its own folder
-

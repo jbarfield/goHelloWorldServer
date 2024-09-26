@@ -1,23 +1,41 @@
-# HelloWorldGoServer
-GO + Docker + unit tests
+# HelloWorldGoServer  - Forked
+## https://github.com/td-harness/goHelloWorldServer
+Dependencies:
+* GO 
+* Docker
+* unit tests
 
 ## Running the app locally
 ```
-# CGO_ENABLED=0 GOOS=linux GOARCH=amd64 
-go build -buildvcs=false -o main .
+go build -o main .
 ./main
 ```
-2019/02/03 11:38:11 Starting Server
+2024/09/26 11:38:11 Starting Server
+## Test
 `curl http://localhost:8080?name=barfield`
 Hello, jbarfield
 
 ## Harness CI/CD Deployment Notes
 
-## Connectors
-* github.com/jbarfield/GoHelloWorldServer
-* kubernetes-delegate
-* docker_connector
+### Required Connectors
+github.com/jbarfield
+* oAuth account [SSO]
+* rsa-key [Pem Format]
+* api access [personal access token]
+* kubernetes-delegate `kubectl apply MANIFEST.yaml` [installed in cluster]
+* docker_connector [harness UI or CLI]
 
+```
+Harness-UI |-> clone app repo <THIS_APP>
+           |-> deploy to delegate from ci/pipeline menu
+           |-> <k8s-docker-image-build> ----> <push-2-docker-hub>
+           |->pull image/deploy pods
+           |---->Service/Deployment/Ingress/Yaml-manifest
+           |------------->Ingress
+           |--->Access web-app: 
+https://harness-helloworld.test.kubesmart.io?name=Harness!
+```
+### Ci/Cd Stages
 ciStage [docker/image/build] = .harness/harnesstestproject0002.yaml
 cdStage [harness_service/deploy_definition stage] = .harness/harnessIohelloworldservice.yaml
 k8sInfrastructure = .harness/infrastructure.yaml
