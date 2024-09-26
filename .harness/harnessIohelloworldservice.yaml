@@ -1,0 +1,5 @@
+service:
+  name: harnessIo-helloworld-service
+  identifier: harnessIohelloworldservice
+  orgIdentifier: default
+  projectIdentifier: default_project
