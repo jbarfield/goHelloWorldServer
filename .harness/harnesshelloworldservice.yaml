@@ -15,11 +15,9 @@ service:
                   connectorRef: harnessrsasshkeytest
                   gitFetchType: Branch
                   paths:
-                    - .
+                    - ./harnesscd-stage
                   repoName: GoHelloWorldServer
                   branch: main
-              valuesPaths:
-                - harness-helloworld-service.yaml
               skipResourceVersioning: false
               enableDeclarativeRollback: false
   gitOpsEnabled: false
