@@ -3,3 +3,22 @@ service:
   identifier: harnessIohelloworldservice
   orgIdentifier: default
   projectIdentifier: default_project
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: harness_helloworld
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: githubjbarfield
+                  gitFetchType: Branch
+                  paths:
+                    - ./harness-stage
+                  repoName: GoHelloWorldServer
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
