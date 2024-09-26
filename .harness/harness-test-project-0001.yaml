@@ -1,0 +1,53 @@
+pipeline:
+  identifier: harnesstestproject0001
+  orgIdentifier: default
+  projectIdentifier: default_project
+  stages:
+    - stage:
+        description: ""
+        failureStrategies:
+          - onFailure:
+              action:
+                type: StageRollback
+              errors:
+                - AllErrors
+        identifier: deployharnesshelloworld
+        name: deploy-harness-helloworld
+        spec:
+          deploymentType: Kubernetes
+          environment:
+            environmentRef: production
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: test_kubesmart_io
+          execution:
+            rollbackSteps:
+              - step:
+                  identifier: rollbackRolloutDeployment
+                  name: Rollback Rollout Deployment
+                  spec:
+                    pruningEnabled: false
+                  timeout: 10m
+                  type: K8sRollingRollback
+            steps:
+              - step:
+                  identifier: rolloutDeployment
+                  name: Rollout Deployment
+                  spec:
+                    pruningEnabled: false
+                    skipDryRun: false
+                  timeout: 10m
+                  type: K8sRollingDeploy
+          service:
+            serviceRef: harnessIohelloworldservice
+        tags: {}
+        type: Deployment
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: harnessrsasshkeytest
+        repoName: GoHelloWorldServer
+        build: <+input>
+        sparseCheckout: []
+  name: harness-test-project-0001
