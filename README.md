@@ -10,3 +10,6 @@ go build -buildvcs=false -o main .
 2019/02/03 11:38:11 Starting Server
 `curl http://localhost:8080?name=barfield`
 Hello, barfield
+
+### Harness CI/CD Deployment Notes
+

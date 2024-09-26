@@ -44,8 +44,6 @@ items:
     metadata:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        kubectl.kubernetes.io/last-applied-configuration: |
-          {apiVersion:networking.k8s.io/v1,kind:Ingress,metadata:{annotations:{cert-manager.io/cluster-issuer:letsencrypt-prod,nginx.ingress.kubernetes.io/ssl-redirect:true},name:ingress-k8s-dashboard,namespace:kube-system},spec:{ingressClassName:nginx,rules:[{host:dashboard.test.kubesmart.io,http:{paths:[{backend:{service:{name:kubernetes-dashboard,port:{number:443}}},path:/,pathType:ImplementationSpecific}]}}],tls:[{hosts:[dashboard.test.kubesmart.io],secretName:dashboard-ingress-tls}]}}
         nginx.ingress.kubernetes.io/ssl-redirect: true
       name: ingress-harness-helloworld
       namespace: harness-ci
