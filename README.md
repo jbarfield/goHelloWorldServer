@@ -12,7 +12,8 @@ go build -o main .
 ```
 2024/09/26 11:38:11 Starting Server
 ## Test
-`curl http://localhost:8080?name=barfield`
+`curl http://localhost:8080?name=jbarfield`
+
 Hello, jbarfield
 
 ## Harness CI/CD Deployment Notes
