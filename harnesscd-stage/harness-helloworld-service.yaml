@@ -45,8 +45,8 @@ items:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         nginx.ingress.kubernetes.io/ssl-redirect: true
-    name: ingress-harness-helloworld
-    namespace: harness-ci
+      name: ingress-harness-helloworld
+      namespace: harness-ci
     spec:
       ingressClassName: nginx
       rules:
@@ -54,12 +54,12 @@ items:
           http:
             paths:
               - backend:
-                service:
-                  name: harness-helloworld-service
-                  port:
-                    number: 80
-            path: /
-            pathType: ImplementationSpecific
+                  service:
+                    name: harness-helloworld-service
+                    port:
+                      number: 80
+                path: /
+                pathType: ImplementationSpecific
       tls:
         - hosts:
             - harness-helloworld.test.kubesmart.io
