@@ -50,4 +50,4 @@ pipeline:
         build: <+input>
         sparseCheckout: []
   identifier: harnesstestproject0002
-  name: harness-test-project-0002
+  name: harness-test-project-0001
