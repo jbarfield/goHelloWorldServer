@@ -37,7 +37,7 @@ Harness-UI |-> clone app repo <THIS_APP>
 https://harness-helloworld.test.kubesmart.io?name=Harness!
 ```
 ### Ci/Cd Stages
-ciStage [docker/image/build] = .harness/harnesstestproject0002.yaml
-cdStage [harness_service/deploy_definition stage] = .harness/harnessIohelloworldservice.yaml
-k8sInfrastructure = .harness/infrastructure.yaml
-k8sManifest = harnesscd-stage/harness-helloworld-service.yaml
+* ciStage [docker/image/build] = .harness/harnesstestproject0002.yaml
+* cdStage [harness_service/deploy_definition stage] = .harness/harnessIohelloworldservice.yaml
+* k8sInfrastructure = .harness/infrastructure.yaml
+* k8sManifest = harnesscd-stage/harness-helloworld-service.yaml
