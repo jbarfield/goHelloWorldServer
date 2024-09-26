@@ -16,7 +16,7 @@ service:
                   connectorRef: githubjbarfield
                   gitFetchType: Branch
                   paths:
-                    - ./harness-stage
+                    - ./harnesscd-stage
                   repoName: GoHelloWorldServer
                   branch: main
               skipResourceVersioning: false
