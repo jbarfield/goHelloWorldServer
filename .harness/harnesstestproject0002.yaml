@@ -3,6 +3,32 @@ pipeline:
   projectIdentifier: default_project
   stages:
     - stage:
+        name: docker-image
+        identifier: dockerimage
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k8sconnector
+              namespace: harness-ci
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: barfielddockerconnector
+                    repo: bissinc/harness-gohelloworldserver
+                    tags:
+                      - v1.1.111
+    - stage:
         description: ""
         failureStrategies:
           - onFailure:
