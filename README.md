@@ -1,4 +1,6 @@
-# HelloWorldGoServer - Example Go Application
+# HelloWorldGoServer 
+---
+# An Example Go Application
 ## https://github.com/td-harness/goHelloWorldServer
 
 An example "Hello World" golang web application.
