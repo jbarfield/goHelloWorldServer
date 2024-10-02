@@ -1,16 +1,30 @@
-# HelloWorldGoServer  - Forked
+# HelloWorldGoServer - Example Go Application
 ## https://github.com/td-harness/goHelloWorldServer
+
+An example "Hello World" golang web application.
+
+This README.md is constantly evolving. 
+
+I forked this work from td-harness who forked the original source from nofarb.
+ 
+* https://github.com/td-harness
+* https://github.com/nofarb
+
+I made an attempt at simplifing the repository and content; removing tests, 
+conflicts, etc, and structuring the same in such a way as to keep it very 
+small and readable for my PPT presentation to Harness management. 
+
 Dependencies:
-* GO 
-* Docker
-* unit tests
+* go 
+* docker
+---
 
 ## Running the app locally
 ```
 go build -o main .
 ./main
 ```
-2024/09/26 11:38:11 Starting Server
+`2024/09/26 11:38:11 Starting Server`
 ## Test
 `curl http://localhost:8080?name=jbarfield`
 
@@ -18,13 +32,18 @@ Hello, jbarfield
 
 ## Harness CI/CD Deployment Notes
 
-### Required Connectors
-github.com/jbarfield
-* oAuth account [SSO]
-* ssh-rsa-key [Pem Format]
-* api access [personal access token]
-* kubernetes-delegate `kubectl apply MANIFEST.yaml` [installed in cluster]
-* docker_connector [harness UI or CLI]
+### Requirements
+* Harness Trial Account
+Optional: github - oAuth access [SSO Harness Account Access]
+* github - ssh-rsa-key [Pem Format Private key]
+`ssh-keygen -t rsa -m PEM -b 2048`
+* github - api access [personal access token] settings/developer/PAT classic
+* harness-kubernetes-delegate [Install to cluster]
+`kubectl --kubeconfig <KUBECONFIG> apply -f https://github.com/harness/delegate-kubernetes-manifest/blob/main/harness-delegate.yaml`
+* dockerhub account - hub.docker.com
+* docker_hub_connector [See: harness UI]
+* docker_hub project Public Read/Write Docker Image
+* 
 
 ```
 Harness-UI |-> clone app repo <THIS_APP>
